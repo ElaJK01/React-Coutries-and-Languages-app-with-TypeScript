@@ -1,3 +1,27 @@
+# Assignment - React 7
+
+***
+
+## Configuration steps
+Start off from your React 6 repository, then set up typescript for your project.
+
+## Assignment goal
+
+<details>
+The goal of this project is to grasp the basics of typescript and its setup in a small-sized project, as well as familiarization with interfaces/types.
+</details>
+
+## Formal requirements
+<details>
+
+* no functionality changes should be made to your existing project
+* all interfaces for components and helpers should be typed via typescript
+  * this can be omitted for most complex of your elements for now, as some of them will probably require more advanced typescript - you are very welcome to try, though!
+* types and interfaces should be sufficiently "atomized" to be reusable/extendable where necessary
+* try and research good practices before applying a solution - there might be a few traps and caveats in even simple interfaces
+* your project should be appropriately refactored to take advantage of functionalities like: optional chaining, nullish coalescing operator
+</details>
+
 # Assignment - React 6
 
 ***
