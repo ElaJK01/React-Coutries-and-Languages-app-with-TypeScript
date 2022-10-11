@@ -12,12 +12,18 @@ const List = styled.div`
   }
 `;
 
-const FooterList = ({ list }) => (
+type listType = {
+  list: [];
+};
+
+const FooterList: React.FC<listType> = ({ list }: listType) => (
   <List>
-    {list
-      |> map((el) => (
+    {map(
+      (el) => (
         <Link key={indexOf(el, list)} href={el.link} name={el.title} />
-      ))}
+      ),
+      list
+    )}
   </List>
 );
 

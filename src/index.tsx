@@ -13,3 +13,6 @@ root.render(
     </ApolloProvider>
   </BrowserRouter>
 );
+
+// @ts-ignore
+module.hot.accept()

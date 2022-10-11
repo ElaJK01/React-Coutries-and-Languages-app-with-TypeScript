@@ -15,7 +15,7 @@ const languageText =
   "        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit\n";
 
 const LanguageDetails = withLoadingData((props) => {
-  const languageDetails = props |> path(["data", "language"]);
+  const languageDetails = path(["data", "language"], props);
 
   const itemsList = [
     { id: 1, tag: <p>Language Name: {languageDetails.name}</p> },

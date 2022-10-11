@@ -9,7 +9,13 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const DetailsList = ({ list }) => {
+type detailsListProps = {
+  list: {}[];
+};
+
+const DetailsList: React.FC<detailsListProps> = ({
+  list,
+}: detailsListProps) => {
   const [items, setItems] = useState(list);
 
   useEffect(() => setItems(list), [list]);
@@ -28,7 +34,7 @@ const DetailsList = ({ list }) => {
 
   return (
     <Container>
-      {items |> mapIndexed((item, index) => renderElement(item, index))}
+      {mapIndexed((item, index) => renderElement(item, index), items)}
     </Container>
   );
 };

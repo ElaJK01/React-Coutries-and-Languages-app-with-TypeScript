@@ -18,7 +18,7 @@ const textDetails =
   "        officia deserunt mollit anim id est laborum.";
 
 const CountryDetails = withLoadingData((props) => {
-  const countryDetails = props |> path(["data", "country"]);
+  const countryDetails = path(["data", "country"], props);
 
   const itemsList = [
     {
@@ -40,10 +40,12 @@ const CountryDetails = withLoadingData((props) => {
         <div style={{ fontSize: "10px" }}>
           Languages:{" "}
           <ul style={{ listStyle: "none" }}>
-            {countryDetails.languages
-              |> map((lang) => (
+            {map(
+              (lang) => (
                 <li key={prop("code", lang)}>{prop("name", lang)}</li>
-              ))}
+              ),
+              countryDetails.languages
+            )}
           </ul>
         </div>
       ),
@@ -54,12 +56,14 @@ const CountryDetails = withLoadingData((props) => {
         <div style={{ fontSize: "10px" }}>
           States:{" "}
           <ul style={{ listStyle: "none" }}>
-            {countryDetails.states
-              |> map((state) => (
+            {map(
+              (state) => (
                 <li key={indexOf(state, countryDetails.states)}>
                   {prop("name", state)}
                 </li>
-              ))}
+              ),
+              countryDetails.states
+            )}
           </ul>
         </div>
       ),

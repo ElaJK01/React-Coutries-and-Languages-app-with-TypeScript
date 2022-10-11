@@ -139,7 +139,27 @@ const CardTitle = styled.h4`
   }
 `;
 
-const Card = ({ img, link, color, content, title, id, index, moveCard }) => {
+type cardProps = {
+  img?: string;
+  link?: string;
+  color?: string;
+  content: any;
+  title: string;
+  id: string | number;
+  index?: string | number;
+  moveCard: (a: number, b: number) => void;
+};
+
+const Card: React.FC<cardProps> = ({
+  img,
+  link,
+  color,
+  content,
+  title,
+  id,
+  index,
+  moveCard,
+}: cardProps) => {
   const ref = useRef(null);
 
   const [{ handlerId, isOver }, drop] = useDrop({

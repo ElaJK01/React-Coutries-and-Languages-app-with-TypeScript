@@ -5,7 +5,13 @@ import { mapIndexed, moveElementFn } from "../helpers";
 import ListContainer from "./listContainer";
 import ToPrintTitle from "./toPrintTitle";
 
-const LanguagesList = ({ list }) => {
+type continentListProps = {
+  list: [];
+};
+
+const ContinentsList: React.FC<continentListProps> = ({
+  list,
+}: continentListProps) => {
   const [cards, setCards] = useState(list);
 
   useEffect(() => {
@@ -20,28 +26,26 @@ const LanguagesList = ({ list }) => {
         key={index}
         index={index}
         id={prop("code", card)}
+        moveCard={moveCard}
         title={prop("name", card)}
         content={
-          <div>
-            <p>
-              Code:
-              {prop("code", card)}
-            </p>
-          </div>
+          <p>
+            Code:
+            {prop("code", card)}
+          </p>
         }
-        moveCard={moveCard}
-        link={`/languages/${prop("code", card)}`}
-        color="lightgreen"
+        link={`/continents/${prop("code", card)}`}
       />
     ),
-    [list]
+    []
   );
+
   return (
     <ListContainer>
-      <ToPrintTitle title="Title: Languages list" />
-      {cards |> mapIndexed((card, index) => renderCard(card, index))}
+      <ToPrintTitle title="Title: Continents list" />
+      {mapIndexed((card, i) => renderCard(card, i), cards)}
     </ListContainer>
   );
 };
 
-export default LanguagesList;
+export default ContinentsList;

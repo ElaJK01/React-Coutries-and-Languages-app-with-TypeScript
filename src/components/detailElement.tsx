@@ -1,7 +1,19 @@
 import React, { useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 
-const DetailElement = ({ element, index, moveElement, id }) => {
+type detailElementProps = {
+  element: any;
+  index: number;
+  moveElement: (a: number, b: number) => void;
+  id: string | number;
+};
+
+const DetailElement: React.FC<detailElementProps> = ({
+  element,
+  index,
+  moveElement,
+  id,
+}: detailElementProps) => {
   const ref = useRef(null);
 
   const [, drop] = useDrop({

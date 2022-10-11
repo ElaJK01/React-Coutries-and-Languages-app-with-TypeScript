@@ -10,6 +10,12 @@ const ToPrint = styled.h1`
   }
 `;
 
-const ToPrintTitle = ({ title }) => <ToPrint>{title}</ToPrint>;
+type toPrintTitleProps = {
+  title: string;
+};
+
+const ToPrintTitle: React.FC<toPrintTitleProps> = ({
+  title,
+}: toPrintTitleProps) => <ToPrint>{title}</ToPrint>;
 
 export default ToPrintTitle;

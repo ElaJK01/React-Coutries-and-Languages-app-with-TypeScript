@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useThemeMode = () => {
+const useThemeMode = (a?: any) => {
   const [theme, setTheme] = useState("light");
 
   const setMode = (mode) => {

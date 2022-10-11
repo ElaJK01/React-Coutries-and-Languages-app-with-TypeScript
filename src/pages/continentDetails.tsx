@@ -18,8 +18,8 @@ const text =
   "        officia deserunt mollit anim id est laborum.";
 
 const ContinentDetails = withLoadingData((props) => {
-  const continentDetails = props |> path(["data", "continent"]);
-  const countries = continentDetails |> path(["countries"]);
+  const continentDetails = path(["data", "continent"], props);
+  const countries = path(["countries"], continentDetails);
 
   const itemsList = [
     {
@@ -36,10 +36,12 @@ const ContinentDetails = withLoadingData((props) => {
         <div style={{ fontSize: "10px" }}>
           Countries:{" "}
           <ul style={{ listStyle: "none" }}>
-            {countries
-              |> map((country) => (
+            {map(
+              (country) => (
                 <li key={prop("code", country)}>{prop("name", country)}</li>
-              ))}
+              ),
+              countries
+            )}
           </ul>
         </div>
       ),

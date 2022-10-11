@@ -5,7 +5,11 @@ import { mapIndexed, moveElementFn } from "../helpers";
 import ListContainer from "./listContainer";
 import ToPrintTitle from "./toPrintTitle";
 
-const CountriesList = ({ list }) => {
+type listProps = {
+  list: {}[];
+};
+
+const CountriesList: React.FC<listProps> = ({ list }: listProps) => {
   const [cards, setCards] = useState(list);
 
   useEffect(() => {
@@ -31,10 +35,12 @@ const CountriesList = ({ list }) => {
               <li>
                 Languages:{" "}
                 <ul style={{ listStyleType: "none" }}>
-                  {card.languages
-                    |> mapIndexed((lang, i) => (
+                  {mapIndexed(
+                    (lang, i) => (
                       <li key={i}>{prop("name", lang)}</li>
-                    ))}
+                    ),
+                    card.languages
+                  )}
                 </ul>
               </li>
               <li>Emoji: {card.emoji}</li>
@@ -52,7 +58,7 @@ const CountriesList = ({ list }) => {
   return (
     <ListContainer>
       <ToPrintTitle title="Title: Countries list" />
-      {cards |> mapIndexed((card, index) => renderCard(card, index))}
+      {mapIndexed((card, index) => renderCard(card, index), cards)}
     </ListContainer>
   );
 };

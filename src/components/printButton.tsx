@@ -27,7 +27,15 @@ const ButtonRoot = styled.button`
   }
 `;
 
-const PrintButton = ({ onClick, text }) => (
+type printButtonProps = {
+  onClick: () => void;
+  text: string;
+};
+
+const PrintButton: React.FC<printButtonProps> = ({
+  onClick,
+  text,
+}: printButtonProps) => (
   <ButtonRoot onClick={onClick}>{text || "Print"}</ButtonRoot>
 );
 

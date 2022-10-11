@@ -35,7 +35,17 @@ const CloseButton = styled.button`
   }
 `;
 
-const Modal = ({ isOpen, children, handleClose }) => {
+type modalProps = {
+  isOpen: boolean;
+  children: any;
+  handleClose: () => void;
+};
+
+const Modal: React.FC<modalProps> = ({
+  isOpen,
+  children,
+  handleClose,
+}: modalProps) => {
   if (!isOpen) return null;
   return createPortal(
     <ModalRoot isOpen={isOpen}>

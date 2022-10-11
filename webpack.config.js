@@ -2,17 +2,17 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: path.join(__dirname, "src", "index.js"),
+  entry: path.join(__dirname, "src", "index.tsx"),
   output: {
     path: path.join(__dirname, "build"),
     filename: "index.bundle.js",
     publicPath: "/",
   },
   mode: process.env.NODE_ENV || "development",
-  resolve: { modules: [path.resolve(__dirname, "src"), "node_modules"] },
   devServer: {
     static: { directory: path.join(__dirname, "src") },
     historyApiFallback: true,
+    hot: true,
   },
   module: {
     rules: [
@@ -29,7 +29,14 @@ module.exports = {
         test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
         use: ["file-loader"],
       },
+      {
+        test: /\.(ts|tsx)$/,
+        loader: "ts-loader",
+      },
     ],
+  },
+  resolve: {
+    extensions: [".tsx", "*", ".js", ".jsx", ".ts"],
   },
   plugins: [
     new HtmlWebpackPlugin({

@@ -26,9 +26,13 @@ const FooterDiv = styled.div`
   }
 `;
 
-const Footer = ({ linksList }) => {
-  const firstFooterColumn = linksList |> slice(0, 3);
-  const secondFooterColumn = linksList |> slice(3, Infinity);
+type linksListProps = {
+  linksList: {}[];
+};
+
+const Footer: React.FC<linksListProps> = ({ linksList }: linksListProps) => {
+  const firstFooterColumn = slice(0, 3, linksList);
+  const secondFooterColumn = slice(3, Infinity, linksList);
 
   return (
     <FooterDiv>

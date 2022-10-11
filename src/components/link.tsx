@@ -9,6 +9,13 @@ const LinkRoot = styled.a`
   }
 `;
 
-const Link = ({ href, name }) => <LinkRoot href={href}>{name}</LinkRoot>;
+type linkProps = {
+  href: string;
+  name: string;
+};
+
+const Link: React.FC<linkProps> = ({ href, name }: linkProps) => (
+  <LinkRoot href={href}>{name}</LinkRoot>
+);
 
 export default Link;

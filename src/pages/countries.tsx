@@ -32,7 +32,7 @@ const Countries = withLoadingData((props) => {
   const currentDataCount = () => {
     const firstPageIndex = multiply(currentPage - 1, itemsPerPage);
     const lastPageIndex = add(firstPageIndex, itemsPerPage);
-    return countriesList |> slice(firstPageIndex, lastPageIndex);
+    return slice(firstPageIndex, lastPageIndex, countriesList);
   };
 
   const currentData = currentDataCount();

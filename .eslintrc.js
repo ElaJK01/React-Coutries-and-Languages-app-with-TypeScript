@@ -1,10 +1,20 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const typescriptEslintRecommended = require("@typescript-eslint/eslint-plugin")
+  .configs.recommended;
+
 module.exports = {
   env: {
     browser: true,
     es2021: true,
     node: true,
   },
-  extends: ["plugin:react/recommended", "airbnb", "prettier"],
+  extends: [
+    "plugin:react/recommended",
+    "airbnb",
+    "prettier",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -17,7 +27,23 @@ module.exports = {
       presets: ["@babel/preset-react"],
     },
   },
-  plugins: ["react", "prettier"],
+  plugins: ["react", "prettier", "@typescript-eslint"],
+  overrides: [
+    {
+      files: ["**/*.ts", "**/*.tsx"],
+      parser: "@typescript-eslint/parser",
+      parserOptions: {
+        project: "./tsconfig.json",
+      },
+      plugins: ["@typescript-eslint"],
+      rules: Object.assign(typescriptEslintRecommended.rules, {
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/member-delimiter-style": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "react/prop-types": "off",
+      }),
+    },
+  ],
   rules: {
     "prettier/prettier": "error",
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
