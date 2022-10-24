@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "sourceMap": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "react",
     "target": "es2015",
     "noEmit": false,

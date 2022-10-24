@@ -19,11 +19,11 @@ const Main = styled.main`
   align-items: center;
 `;
 
-const Layout = ({ children }) => (
+const Layout: React.FC<{ children: React.ReactNode }> = (props) => (
   <>
     <Header />
     <NavigationWrapper>
-      <Main>{children}</Main>
+      <Main>{props.children}</Main>
       <Footer linksList={links} />
     </NavigationWrapper>
   </>

@@ -9,13 +9,13 @@ const Container = styled.div`
   align-items: center;
 `;
 
-type detailsListProps = {
+type DetailsListProps = {
   list: {}[];
 };
 
-const DetailsList: React.FC<detailsListProps> = ({
+const DetailsList: React.FC<DetailsListProps> = ({
   list,
-}: detailsListProps) => {
+}: DetailsListProps) => {
   const [items, setItems] = useState(list);
 
   useEffect(() => setItems(list), [list]);

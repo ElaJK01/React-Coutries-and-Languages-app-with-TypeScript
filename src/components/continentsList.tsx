@@ -5,13 +5,13 @@ import { mapIndexed, moveElementFn } from "../helpers";
 import ListContainer from "./listContainer";
 import ToPrintTitle from "./toPrintTitle";
 
-type continentListProps = {
+type ContinentListProps = {
   list: [];
 };
 
-const ContinentsList: React.FC<continentListProps> = ({
+const ContinentsList: React.FC<ContinentListProps> = ({
   list,
-}: continentListProps) => {
+}: ContinentListProps) => {
   const [cards, setCards] = useState(list);
 
   useEffect(() => {

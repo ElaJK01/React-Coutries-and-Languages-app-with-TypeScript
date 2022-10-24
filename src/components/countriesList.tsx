@@ -5,11 +5,11 @@ import { mapIndexed, moveElementFn } from "../helpers";
 import ListContainer from "./listContainer";
 import ToPrintTitle from "./toPrintTitle";
 
-type listProps = {
+type ListProps = {
   list: {}[];
 };
 
-const CountriesList: React.FC<listProps> = ({ list }: listProps) => {
+const CountriesList: React.FC<ListProps> = ({ list }: ListProps) => {
   const [cards, setCards] = useState(list);
 
   useEffect(() => {

@@ -12,11 +12,11 @@ const List = styled.div`
   }
 `;
 
-type listType = {
+type ListType = {
   list: [];
 };
 
-const FooterList: React.FC<listType> = ({ list }: listType) => (
+const FooterList: React.FC<ListType> = ({ list }: ListType) => (
   <List>
     {map(
       (el) => (

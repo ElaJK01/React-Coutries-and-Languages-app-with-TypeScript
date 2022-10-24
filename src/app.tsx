@@ -67,7 +67,7 @@ const PrintableBodyWrapper = styled.div`
   }
 `;
 
-const App: React.FC = () => {
+const App = () => {
   const [theme, themeToggler] = useThemeMode("light");
 
   const mode = theme === "light" ? lightTheme : darkTheme;

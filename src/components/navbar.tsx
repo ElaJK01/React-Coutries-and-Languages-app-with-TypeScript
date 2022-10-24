@@ -42,11 +42,11 @@ const NavButton = styled(Link)`
   }
 `;
 
-type navButtonProps = {
+type NavButtonProps = {
   navButtonList: {}[];
 };
 
-const Navbar: React.FC<navButtonProps> = ({ navButtonList }: navButtonProps) => (
+const Navbar: React.FC<NavButtonProps> = ({ navButtonList }: NavButtonProps) => (
   <NavbarRoot>
     {map(
       (el) => (

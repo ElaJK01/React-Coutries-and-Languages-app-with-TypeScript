@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import { useDrag, useDrop } from "react-dnd";
+import { useDrag, useDrop, DropTargetMonitor } from "react-dnd";
 import { useReactToPrint } from "react-to-print";
 import CardButton from "./cardButton";
 import PrintButton from "./printButton";
@@ -139,18 +139,24 @@ const CardTitle = styled.h4`
   }
 `;
 
-type cardProps = {
+interface Item {
+  index: number;
+  id: string;
+  type: string;
+}
+
+type CardProps = {
   img?: string;
   link?: string;
   color?: string;
   content: any;
   title: string;
   id: string | number;
-  index?: string | number;
+  index?: number;
   moveCard: (a: number, b: number) => void;
 };
 
-const Card: React.FC<cardProps> = ({
+const Card: React.FC<CardProps> = ({
   img,
   link,
   color,
@@ -159,7 +165,7 @@ const Card: React.FC<cardProps> = ({
   id,
   index,
   moveCard,
-}: cardProps) => {
+}: CardProps) => {
   const ref = useRef(null);
 
   const [{ handlerId, isOver }, drop] = useDrop({
@@ -170,7 +176,7 @@ const Card: React.FC<cardProps> = ({
         isOver: monitor.isOver(),
       };
     },
-    hover(item, monitor) {
+    hover(item: Item, monitor: DropTargetMonitor) {
       if (!ref.current) {
         return;
       }

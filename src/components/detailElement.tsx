@@ -1,24 +1,30 @@
 import React, { useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 
-type detailElementProps = {
+interface Item {
+  index: number;
+  id: string;
+  type: string;
+}
+
+type DetailElementProps = {
   element: any;
   index: number;
   moveElement: (a: number, b: number) => void;
   id: string | number;
 };
 
-const DetailElement: React.FC<detailElementProps> = ({
+const DetailElement: React.FC<DetailElementProps> = ({
   element,
   index,
   moveElement,
   id,
-}: detailElementProps) => {
+}: DetailElementProps) => {
   const ref = useRef(null);
 
   const [, drop] = useDrop({
     accept: "element",
-    hover(item) {
+    hover(item: Item) {
       if (!ref.current) {
         return;
       }

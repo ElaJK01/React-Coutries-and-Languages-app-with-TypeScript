@@ -1,11 +1,11 @@
 import React from "react";
 
-type imgProps = {
+type ImgProps = {
   image: string;
   altName: string;
 };
 
-const SmallImage: React.FC<imgProps> = ({ image, altName }: imgProps) => (
+const SmallImage: React.FC<ImgProps> = ({ image, altName }: ImgProps) => (
   <img src={image} alt={altName} width={50} height={50} />
 );
 

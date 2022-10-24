@@ -15,4 +15,4 @@ root.render(
 );
 
 // @ts-ignore
-module.hot.accept()
+module.hot.accept();

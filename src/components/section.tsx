@@ -37,22 +37,20 @@ const SectionText = styled.p`
   }
 `;
 
-type sectionProps = {
+const Section: React.FC<{
   title: string;
   text: string;
-  children?: any;
-};
+  children?: React.ReactNode;
+}> = (props) => {
+  const { title, text, children } = props;
 
-const Section: React.FC<sectionProps> = ({
-  title,
-  text,
-  children,
-}: sectionProps) => (
-  <SectionRoot>
-    <SectionTitle>{title}</SectionTitle>
-    <SectionText>{text}</SectionText>
-    {children}
-  </SectionRoot>
-);
+  return (
+    <SectionRoot>
+      <SectionTitle>{title}</SectionTitle>
+      <SectionText>{text}</SectionText>
+      {children}
+    </SectionRoot>
+  );
+};
 
 export default Section;

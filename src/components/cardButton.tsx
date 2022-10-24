@@ -37,11 +37,11 @@ const Button = styled(Link)`
   }
 `;
 
-type cardButtonProps = {
+type CardButtonProps = {
   to: string;
 };
 
-const CardButton: React.FC<cardButtonProps> = ({ to }: cardButtonProps) => (
+const CardButton: React.FC<CardButtonProps> = ({ to }: CardButtonProps) => (
   <Button to={to}>
     <span>More Info</span>
   </Button>

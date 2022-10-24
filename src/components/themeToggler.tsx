@@ -24,15 +24,15 @@ const Button = styled.button`
   }
 `;
 
-type themeTogglerProps = {
+type ThemeTogglerProps = {
   toggleTheme: any;
   theme: string | (() => void);
 };
 
-const ThemeToggler: React.FC<themeTogglerProps> = ({
+const ThemeToggler: React.FC<ThemeTogglerProps> = ({
   toggleTheme,
   theme,
-}: themeTogglerProps) => (
+}: ThemeTogglerProps) => (
   <Button onClick={toggleTheme}>
     {theme === "light" ? <Moon /> : <Sun />}
   </Button>
