@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["webpack-env"],
     "sourceMap": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "react",

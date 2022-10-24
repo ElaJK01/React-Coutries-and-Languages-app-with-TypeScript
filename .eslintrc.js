@@ -55,6 +55,8 @@ module.exports = {
     "consistent-return": 0,
     "no-unused-expressions": 0,
     "no-nested-ternary": 0,
+    "import/no-import-module-exports": "off",
+    "import/extensions": "off",
   },
   parser: "@babel/eslint-parser",
   ignorePatterns: ["graphql.tsx"],

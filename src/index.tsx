@@ -14,5 +14,4 @@ root.render(
   </BrowserRouter>
 );
 
-// @ts-ignore
 module.hot.accept();
