@@ -105,10 +105,10 @@ const Svg = styled.svg`
 `;
 
 const paginationCount = (
-  totalItems,
-  itemsPerPage,
-  adjacentPages,
-  currentPage
+  totalItems: number,
+  itemsPerPage: number,
+  adjacentPages: number,
+  currentPage: number
 ) => {
   const pageNumbers = Math.ceil(divide(totalItems, itemsPerPage));
 

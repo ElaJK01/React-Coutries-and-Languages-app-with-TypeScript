@@ -7,6 +7,7 @@ import Section from "../components/section";
 import withLoadingData from "../withLoadingData";
 import Modal from "../components/modal";
 import PrintButton from "../components/printButton";
+import { countriesObj } from "../types";
 
 const countriesText =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n" +
@@ -21,8 +22,8 @@ const countriesText =
   "        officia deserunt mollit anim id est laborum.";
 
 const Countries = withLoadingData((props) => {
-  const [countriesList, setCountriesList] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [countriesList, setCountriesList] = useState<countriesObj[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemsPerPage] = useState(10);
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const Countries = withLoadingData((props) => {
   const currentData = currentDataCount();
 
   const handlePaginate = (pageNumber) => setCurrentPage(pageNumber);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <div>

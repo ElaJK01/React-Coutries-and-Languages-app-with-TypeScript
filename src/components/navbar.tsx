@@ -31,10 +31,12 @@ const NavButton = styled(Link)`
   padding: 2px 4px 2px 4px;
   color: ${({ theme }) => theme.text};
   text-decoration: none;
+
   :hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     background: ${({ theme }) => theme.navbarButtonBackgroundHover};
   }
+
   @media screen and (min-width: 320px) and (max-width: 768px) {
     font-size: 0.6rem;
     height: 10%;
@@ -42,21 +44,28 @@ const NavButton = styled(Link)`
   }
 `;
 
-type NavButtonProps = {
-  navButtonList: {}[];
-};
+interface navButtons {
+  title: string;
+  link: string;
+}
 
-const Navbar: React.FC<NavButtonProps> = ({ navButtonList }: NavButtonProps) => (
-  <NavbarRoot>
-    {map(
-      (el) => (
-        <NavButton key={indexOf(el, navButtonList)} to={el.link}>
-          {el.title}
-        </NavButton>
-      ),
-      navButtonList
-    )}
-  </NavbarRoot>
-);
+const Navbar: React.FC<{
+  navButtonList: navButtons[];
+}> = (props) => {
+  const { navButtonList } = props;
+
+  return (
+    <NavbarRoot>
+      {map(
+        (el) => (
+          <NavButton key={indexOf(el, navButtonList)} to={el.link}>
+            {el.title}
+          </NavButton>
+        ),
+        navButtonList
+      )}
+    </NavbarRoot>
+  );
+};
 
 export default withRouter(Navbar);

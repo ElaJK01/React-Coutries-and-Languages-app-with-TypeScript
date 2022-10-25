@@ -14,12 +14,8 @@ type DetailElementProps = {
   id: string | number;
 };
 
-const DetailElement: React.FC<DetailElementProps> = ({
-  element,
-  index,
-  moveElement,
-  id,
-}: DetailElementProps) => {
+const DetailElement: React.FC<DetailElementProps> = (props) => {
+  const { element, index, moveElement, id } = props;
   const ref = useRef(null);
 
   const [, drop] = useDrop({

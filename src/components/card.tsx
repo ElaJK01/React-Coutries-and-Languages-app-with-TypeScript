@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import { useDrag, useDrop, DropTargetMonitor } from "react-dnd";
+import { DropTargetMonitor, useDrag, useDrop } from "react-dnd";
 import { useReactToPrint } from "react-to-print";
 import CardButton from "./cardButton";
 import PrintButton from "./printButton";
@@ -149,23 +149,16 @@ type CardProps = {
   img?: string;
   link?: string;
   color?: string;
-  content: any;
+  content: React.ReactNode;
   title: string;
   id: string | number;
   index?: number;
   moveCard: (a: number, b: number) => void;
 };
 
-const Card: React.FC<CardProps> = ({
-  img,
-  link,
-  color,
-  content,
-  title,
-  id,
-  index,
-  moveCard,
-}: CardProps) => {
+const Card: React.FC<CardProps> = (props) => {
+  const { img, link, color, content, title, id, index, moveCard } = props;
+
   const ref = useRef(null);
 
   const [{ handlerId, isOver }, drop] = useDrop({

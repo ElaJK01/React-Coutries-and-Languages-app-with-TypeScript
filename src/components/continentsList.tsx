@@ -4,15 +4,13 @@ import Card from "./card";
 import { mapIndexed, moveElementFn } from "../helpers";
 import ListContainer from "./listContainer";
 import ToPrintTitle from "./toPrintTitle";
+import { continentObj } from "../types";
 
-type ContinentListProps = {
-  list: [];
-};
-
-const ContinentsList: React.FC<ContinentListProps> = ({
-  list,
-}: ContinentListProps) => {
-  const [cards, setCards] = useState(list);
+const ContinentsList: React.FC<{
+  list: continentObj[];
+}> = (props) => {
+  const { list } = props;
+  const [cards, setCards] = useState<continentObj[]>(list);
 
   useEffect(() => {
     setCards(list);
@@ -21,7 +19,7 @@ const ContinentsList: React.FC<ContinentListProps> = ({
   const moveCard = useCallback(moveElementFn(setCards), []);
 
   const renderCard = useCallback(
-    (card, index) => (
+    (card: continentObj, index: number) => (
       <Card
         key={index}
         index={index}

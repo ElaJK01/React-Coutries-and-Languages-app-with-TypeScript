@@ -12,10 +12,12 @@ const ButtonRoot = styled.button`
   margin: 5px;
   color: ${({ theme }) => theme.text};
   text-decoration: none;
+
   :hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     background: ${({ theme }) => theme.navbarButtonBackgroundHover};
   }
+
   @media screen and (min-width: 320px) and (max-width: 768px) {
     font-size: 0.6rem;
     height: 10%;
@@ -27,16 +29,13 @@ const ButtonRoot = styled.button`
   }
 `;
 
-type PrintButtonProps = {
+const PrintButton: React.FC<{
   onClick: () => void;
   text: string;
-};
+}> = (props) => {
+  const { onClick, text } = props;
 
-const PrintButton: React.FC<PrintButtonProps> = ({
-  onClick,
-  text,
-}: PrintButtonProps) => (
-  <ButtonRoot onClick={onClick}>{text || "Print"}</ButtonRoot>
-);
+  return <ButtonRoot onClick={onClick}>{text || "Print"}</ButtonRoot>;
+};
 
 export default PrintButton;

@@ -41,11 +41,8 @@ type ModalProps = {
   handleClose: () => void;
 };
 
-const Modal: React.FC<ModalProps> = ({
-  isOpen,
-  children,
-  handleClose,
-}: ModalProps) => {
+const Modal: React.FC<ModalProps> = (props) => {
+  const { isOpen, children, handleClose } = props;
   if (!isOpen) return null;
   return createPortal(
     <ModalRoot isOpen={isOpen}>

@@ -3,6 +3,13 @@ const typescriptEslintRecommended = require("@typescript-eslint/eslint-plugin")
   .configs.recommended;
 
 module.exports = {
+  settings: {
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
+  },
   env: {
     browser: true,
     es2021: true,
@@ -46,7 +53,7 @@ module.exports = {
   ],
   rules: {
     "prettier/prettier": "error",
-    "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx", "tsx"] }],
     "react/no-unstable-nested-components": [1, { allowAsProps: true }],
     "react/function-component-definition": "off",
     "react/prop-types": "off",

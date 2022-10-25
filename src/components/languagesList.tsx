@@ -4,13 +4,14 @@ import Card from "./card";
 import { mapIndexed, moveElementFn } from "../helpers";
 import ListContainer from "./listContainer";
 import ToPrintTitle from "./toPrintTitle";
+import { languagesObj } from "../types";
 
-type ListProp = {
-  list: {}[];
-};
+const LanguagesList: React.FC<{
+  list: languagesObj[];
+}> = (props) => {
+  const { list } = props;
 
-const LanguagesList: React.FC<ListProp> = ({ list }: ListProp) => {
-  const [cards, setCards] = useState(list);
+  const [cards, setCards] = useState<languagesObj[]>(list);
 
   useEffect(() => {
     setCards(list);
@@ -19,7 +20,7 @@ const LanguagesList: React.FC<ListProp> = ({ list }: ListProp) => {
   const moveCard = useCallback(moveElementFn(setCards), []);
 
   const renderCard = useCallback(
-    (card, index) => (
+    (card: languagesObj, index: number) => (
       <Card
         key={index}
         index={index}

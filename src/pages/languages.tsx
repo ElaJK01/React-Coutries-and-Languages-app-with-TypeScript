@@ -7,6 +7,7 @@ import Section from "../components/section";
 import withLoadingData from "../withLoadingData";
 import Modal from "../components/modal";
 import PrintButton from "../components/printButton";
+import { languagesObj } from "../types";
 
 const languagesText =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n" +
@@ -21,8 +22,8 @@ const languagesText =
   "        officia deserunt mollit anim id est laborum.";
 
 const Languages = withLoadingData((props) => {
-  const [languagesList, setLanguagesList] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [languagesList, setLanguagesList] = useState<languagesObj[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemsPerPage] = useState(20);
 
   useEffect(() => {

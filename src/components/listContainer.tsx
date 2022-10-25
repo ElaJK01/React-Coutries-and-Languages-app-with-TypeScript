@@ -26,6 +26,8 @@ const Root = styled.div`
 `;
 
 const ListContainer: React.FC<{ children: React.ReactNode }> = (props) => {
+  const { children } = props;
+
   const printRef = useRef();
 
   const handlePrint = useReactToPrint({
@@ -36,7 +38,7 @@ const ListContainer: React.FC<{ children: React.ReactNode }> = (props) => {
   return (
     <div id="listWrapper">
       <PrintButton text="Print page" onClick={handlePrint} />
-      <Root ref={printRef}>{props.children}</Root>
+      <Root ref={printRef}>{children}</Root>
     </div>
   );
 };

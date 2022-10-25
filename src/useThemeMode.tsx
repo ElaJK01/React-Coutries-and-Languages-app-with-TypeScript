@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
-const useThemeMode = (a?: any) => {
+const useThemeMode = (a?: string) => {
   const [theme, setTheme] = useState("light");
 
-  const setMode = (mode) => {
+  const setMode = (mode: string) => {
     window.localStorage.setItem("theme", mode);
     setTheme(mode);
   };

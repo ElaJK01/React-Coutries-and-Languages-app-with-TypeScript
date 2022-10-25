@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { indexOf, map } from "ramda";
 import Link from "./link";
+import { footerList } from "../types";
 
 const List = styled.div`
   display: flex;
@@ -12,19 +13,19 @@ const List = styled.div`
   }
 `;
 
-type ListType = {
-  list: [];
-};
+const FooterList: React.FC<{ list: footerList[] }> = (props) => {
+  const { list } = props;
 
-const FooterList: React.FC<ListType> = ({ list }: ListType) => (
-  <List>
-    {map(
-      (el) => (
-        <Link key={indexOf(el, list)} href={el.link} name={el.title} />
-      ),
-      list
-    )}
-  </List>
-);
+  return (
+    <List>
+      {map(
+        (el) => (
+          <Link key={indexOf(el, list)} href={el.link} name={el.title} />
+        ),
+        list
+      )}
+    </List>
+  );
+};
 
 export default FooterList;
