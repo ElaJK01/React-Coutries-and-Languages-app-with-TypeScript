@@ -3,11 +3,11 @@
 Welcome to the **Countries and Languages App**! This project is a single-page application developed using React with TypeScript. It leverages Apollo Client and GraphQL to fetch and manage data dynamically and uses styled-components for component-level styling. The application was built as part of a learning journey to deepen knowledge of modern web development technologies like React, JavaScript, and GraphQL.
 
 ## Features
-**React with TypeScript**: Ensures type safety and scalability for the project.
-**Apollo Client and GraphQL**: Simplifies data fetching and state management with a GraphQL backend.
-**Styled-components**: Enables writing modular, maintainable styles directly within the components.
-**Ramda.js**: Provides functional utilities for clean and concise code.
-**Webpack and Babel**: Used to bundle and transpile the application for modern browser support.
+* **React with TypeScript**: Ensures type safety and scalability for the project.
+* **Apollo Client and GraphQL**: Simplifies data fetching and state management with a GraphQL backend.
+* **Styled-components**: Enables writing modular, maintainable styles directly within the components.
+* **Ramda.js**: Provides functional utilities for clean and concise code.
+* **Webpack and Babel**: Used to bundle and transpile the application for modern browser support.
 
 This project is a practical exploration of integrating multiple technologies and tools to create a performant, well-structured, and visually appealing application.
 
