@@ -13,7 +13,7 @@ This project is a practical exploration of integrating multiple technologies and
 
 ## How to start?
 1. Copy this repository.
-2. In app folder in terminal use `npm start`.
+2. In app folder in terminal use `npm install`.
 3. In terminal use `npm start`.
 
 
